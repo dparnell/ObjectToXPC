@@ -42,7 +42,8 @@
  *
  * Macro from the Numbis project at https://github.com/jverkoey/nimbus/.
  */
-#define CD_FIX_CATEGORY_BUG(name) @interface CD_FIX_CATEGORY_BUG_##name @end \
-@implementation CD_FIX_CATEGORY_BUG_##name @end
+#define CD_FIX_CATEGORY_BUG(name) @interface CD_FIX_CATEGORY_BUG_##name : NSObject @end \
+@implementation CD_FIX_CATEGORY_BUG_##name \
+@end
 
 #endif
