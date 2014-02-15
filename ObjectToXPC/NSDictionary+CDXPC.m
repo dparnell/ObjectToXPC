@@ -36,6 +36,7 @@
 #import "NSDate+CDXPC.h"
 #import "NSNumber+CDXPC.h"
 #import "NSString+CDXPC.h"
+#import "ObjectToXPCBridge.h"
 
 #import "ObjectToXPC-Private.h"
 
@@ -57,48 +58,7 @@ CD_FIX_CATEGORY_BUG(NSDictionary_CDXPC)
 	if (newSelf) {
 		xpc_dictionary_apply(xpcObject, ^_Bool(const char *keyStr, xpc_object_t value) {
 			NSString *key = [[NSString alloc] initWithUTF8String:keyStr];
-			xpc_type_t valueType = xpc_get_type(value);
-			id object = nil;
-			
-			if (valueType == XPC_TYPE_ARRAY) {
-				object = [[NSArray alloc] initWithXPCObject:value];
-				
-			}
-			else if (valueType == XPC_TYPE_BOOL ||
-					 valueType == XPC_TYPE_DOUBLE ||
-					 valueType == XPC_TYPE_INT64 ||
-					 valueType == XPC_TYPE_UINT64) {
-				object = [[NSNumber alloc] initWithXPCObject:value];
-			}
-			else if (valueType == XPC_TYPE_DATA) {
-				object = [[NSData alloc] initWithXPCObject:value];
-			}
-			else if (valueType == XPC_TYPE_DATE) {
-				object = [[NSDate alloc] initWithXPCObject:value];
-			}
-			else if (valueType == XPC_TYPE_DICTIONARY) {
-				object = [[NSDictionary alloc] initWithXPCObject:value];
-			}
-			else if (valueType == XPC_TYPE_NULL) {
-				object = [NSNull null];
-			}
-			else if (valueType == XPC_TYPE_STRING) {
-				object = [[NSString alloc] initWithXPCObject:value];
-			}
-			else {
-				char *valueDescription = xpc_copy_description(value);
-				NSString *assertionString = [[NSString alloc] initWithFormat:@"Unsupported XPC object '%s'.", valueDescription];
-				free(valueDescription);
-#if DEBUG
-				NSAssert(NO, assertionString);
-#else
-				NSLog(@"%@", assertionString);
-#endif
-			}
-			
-			if (object == nil) {
-				object = [NSNull null];
-			}
+			id object = [ObjectToXPCBridge NSObjectFromXPC: value];
 			[newSelf setValue:object forKey:key];
 			
 			return true;

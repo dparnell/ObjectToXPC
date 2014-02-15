@@ -20,6 +20,10 @@
 		6545D53018AEEC1000DFBDAE /* NSNumber+CDXPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C509AD2149C986100C47839 /* NSNumber+CDXPC.m */; };
 		6545D53118AEEC1000DFBDAE /* NSString+CDXPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C509ADF149C9CBB00C47839 /* NSString+CDXPC.m */; };
 		6545D53218AEEC1000DFBDAE /* NSNull+CDXPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8195814BE6C9A00A2D29C /* NSNull+CDXPC.m */; };
+		6545D53F18AF65C000DFBDAE /* ObjectToXPCBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 6545D53D18AF65C000DFBDAE /* ObjectToXPCBridge.h */; };
+		6545D54018AF65C000DFBDAE /* ObjectToXPCBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 6545D53D18AF65C000DFBDAE /* ObjectToXPCBridge.h */; };
+		6545D54118AF65C000DFBDAE /* ObjectToXPCBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6545D53E18AF65C000DFBDAE /* ObjectToXPCBridge.m */; };
+		6545D54218AF65C000DFBDAE /* ObjectToXPCBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6545D53E18AF65C000DFBDAE /* ObjectToXPCBridge.m */; };
 		9CB8193014BE6B4D00A2D29C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C509AEC149CA69E00C47839 /* SenTestingKit.framework */; };
 		9CB8193114BE6B4D00A2D29C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C509AAE149B956700C47839 /* Cocoa.framework */; };
 		9CB8193414BE6B4D00A2D29C /* ObjectToXPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB8191E14BE6B4C00A2D29C /* ObjectToXPC.framework */; };
@@ -72,6 +76,8 @@
 		6545D52018AEEBE800DFBDAE /* StaticObjectToXPCTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StaticObjectToXPCTests-Info.plist"; sourceTree = "<group>"; };
 		6545D52218AEEBE800DFBDAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6545D52418AEEBE800DFBDAE /* StaticObjectToXPCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaticObjectToXPCTests.m; sourceTree = "<group>"; };
+		6545D53D18AF65C000DFBDAE /* ObjectToXPCBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectToXPCBridge.h; sourceTree = "<group>"; };
+		6545D53E18AF65C000DFBDAE /* ObjectToXPCBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectToXPCBridge.m; sourceTree = "<group>"; };
 		9C509AAE149B956700C47839 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9C509AB1149B956700C47839 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		9C509AB2149B956700C47839 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -246,6 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				9CB8195314BE6C2400A2D29C /* ObjectToXPC.h */,
+				6545D53D18AF65C000DFBDAE /* ObjectToXPCBridge.h */,
+				6545D53E18AF65C000DFBDAE /* ObjectToXPCBridge.m */,
 				9C509AB6149B956700C47839 /* ObjectToXPC-Prefix.pch */,
 				9C509AC8149B9EF200C47839 /* ObjectToXPC-Private.h */,
 				9C509AC3149B95D700C47839 /* NSArray+CDXPC.h */,
@@ -285,6 +293,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6545D54018AF65C000DFBDAE /* ObjectToXPCBridge.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +312,7 @@
 				9CB8195514BE6C2400A2D29C /* ObjectToXPC.h in Headers */,
 				9CB8195914BE6C9A00A2D29C /* NSNull+CDXPC.h in Headers */,
 				9CB8196A14BE70D000A2D29C /* ObjectToXPC-OSX-Prefix.pch in Headers */,
+				6545D53F18AF65C000DFBDAE /* ObjectToXPCBridge.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6545D54218AF65C000DFBDAE /* ObjectToXPCBridge.m in Sources */,
 				6545D52C18AEEC1000DFBDAE /* NSArray+CDXPC.m in Sources */,
 				6545D52D18AEEC1000DFBDAE /* NSData+CDXPC.m in Sources */,
 				6545D52E18AEEC1000DFBDAE /* NSDate+CDXPC.m in Sources */,
@@ -485,6 +496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6545D54118AF65C000DFBDAE /* ObjectToXPCBridge.m in Sources */,
 				9CB8194814BE6BD800A2D29C /* NSArray+CDXPC.m in Sources */,
 				9CB8194A14BE6BD800A2D29C /* NSData+CDXPC.m in Sources */,
 				9CB8194C14BE6BD800A2D29C /* NSDate+CDXPC.m in Sources */,

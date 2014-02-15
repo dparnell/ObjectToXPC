@@ -36,4 +36,4 @@
 #import <ObjectToXPC/NSNumber+CDXPC.h>
 #import <ObjectToXPC/NSString+CDXPC.h>
 #import <ObjectToXPC/NSNull+CDXPC.h>
-
+#import <ObjectToXPC/ObjectToXPCBridge.h>
